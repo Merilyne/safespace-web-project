@@ -30,7 +30,7 @@ export default function Dashboard() {
               key={i}
               className={`px-6 py-2 font-medium ${
                 tab === 'Overview'
-                  ? 'bg-green-500 text-white'
+                  ? 'bg-green-200 text-black'
                   : 'bg-white text-gray-700 hover:bg-gray-100'
               } border-r border-gray-300 last:border-r-0 transition`}
             >
@@ -59,7 +59,7 @@ export default function Dashboard() {
       {/* Content */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 mt-6 flex-grow">
         {/* Notifications */}
-        <div className="bg-green-500 rounded-lg p-4 shadow-md">
+        <div className="bg-green-200 rounded-lg p-4 shadow-md">
           <h3 className="font-bold text-gray-800 mb-4">Recent Notifications</h3>
           <NotificationItem text="New client referral available" time="2 hours ago" />
           <NotificationItem text="Appointment Reminder: John Doe at 10:30 AM" time="30 minutes ago" />
@@ -67,7 +67,7 @@ export default function Dashboard() {
         </div>
 
         {/* Schedule */}
-        <div className="bg-green-500 rounded-lg p-4 shadow-md">
+        <div className="bg-green-200 rounded-lg p-4 shadow-md">
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-bold text-gray-800">Today's Schedule</h3>
             <button className="bg-teal-500 text-white px-3 py-1 rounded-full text-sm hover:bg-teal-600 transition">
