@@ -1,16 +1,23 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Import for routing
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function SignInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter(); // Initialize router
 
   const handleSignIn = (e) => {
     e.preventDefault();
     console.log({ email, password });
+
+    // TODO: You can add API call here to validate credentials
+
+    // Redirect to dashboard
+    router.push('/dashboard');
   };
 
   return (
@@ -25,9 +32,9 @@ export default function SignInPage() {
             height={60}
             className="h-16 w-auto"
           />
-          <span className="text-xl font-extrabold text-black-700 cursor-pointer">SafeSpace</span>
+          <span className="text-xl font-bold text-[#30B6AA]">Safe</span>
+          <span className="text-xl font-bold text-black">Space</span>
         </Link>
-       
       </nav>
 
       {/* Main Section */}
@@ -45,8 +52,8 @@ export default function SignInPage() {
 
         {/* Sign In Form */}
         <div className="max-w-lg w-full bg-white shadow-lg rounded-lg p-10">
-          <h1 className="text-2xl font-extrabold mb-2 text-black-700 text-center">Login</h1>
-          <h2 className="text-lg font-semibold mb-6 text-center">Acess your SafeSpace Account</h2>
+          <h1 className="text-2xl font-extrabold mb-2 text-center">Login</h1>
+          <h2 className="text-lg font-semibold mb-6 text-center">Access your SafeSpace Account</h2>
 
           <form onSubmit={handleSignIn} className="space-y-4">
             <input
@@ -65,6 +72,13 @@ export default function SignInPage() {
               className="w-full border border-gray-300 rounded px-3 py-2"
               required
             />
+
+            {/* Forgot Password link */}
+            <div className="text-center mt-2">
+              <Link href="/forgot-password" className="text-sm text-black hover:underline">
+                Forgot Password?
+              </Link>
+            </div>
 
             <button
               type="submit"
